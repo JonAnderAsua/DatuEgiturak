@@ -94,6 +94,18 @@ public class listaAktoreak {
 		return l;
 	}
 	
+	public int luzera() {
+		Aktorea a;
+		Iterator<Aktorea>itr=this.getIteradorea();
+		a=itr.next();
+		int emaitza=0;
+		while(itr.hasNext()) {
+			emaitza++;
+			a=itr.next();
+		}
+		return emaitza;
+	}
+	
 	public void zerrendaFitxategianGorde() {
 		//Aurre: Sartutako helbidea existitzea
 		//Post: Zerrenda fitxategi batean gordetzen du
@@ -111,5 +123,19 @@ public class listaAktoreak {
 	    catch(IOException fw) {
 	    	System.out.println("Fitxategia ez da existitzen");
 	    }
+	}
+	
+	public Aktorea posizioanBueltatu(int pPosizioa) {
+		Aktorea a=null;
+		Iterator<Aktorea>itr=this.getIteradorea();
+		int emaitza=pPosizioa;
+		if(itr.hasNext()&&pPosizioa<=this.luzera()) {
+			a=itr.next();
+			while(emaitza>0) {
+				a=itr.next();
+				emaitza--;
+			}
+		}
+		return a;
 	}
 }

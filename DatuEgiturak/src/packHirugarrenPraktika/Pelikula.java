@@ -19,4 +19,8 @@ public class Pelikula {
 	public int getDirua() {
 		return this.dirua;
 	}
+	
+	public String getIzena() {
+		return this.izenBurua;
+	}
 }

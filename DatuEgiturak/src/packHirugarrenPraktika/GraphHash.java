@@ -16,12 +16,19 @@ public class GraphHash<T> {
 			Aktorea a=lAktoreak.posizioanBueltatu(i);
 			listaFilmak l=a.pelikulenLista();
 			ArrayList<String> listaPe=new ArrayList<String>();
-			for(int j=0;j<l.luzera();j++) {
-				Pelikula p=l.
+			for(int j=0;j<l.luzera();j++) { //Pelikulen zerrenda ArrayList<String> bihurtzen dugu
+				Pelikula p=l.posizioanLortu(j);
+				listaPe.add(p.getIzena());
+				listaAktoreak lAkt=lAktoreak.pelikularenAktoreakBueltatu(p);
+				ArrayList<String>listaAkt=new ArrayList<String>();
+				for(int u=0;u<lAkt.luzera();u++) {
+					Aktorea akt=lAkt.posizioanBueltatu(u);
+					listaAkt.add(akt.getIzena());
+				}
+				g.put(p.getIzena(), listaAkt); //Pelikula bakoitzaren erlazioak sortzeko
 			}
 			g.put(a.getIzena(), listaPe);
 		}
-		
 	}
 	
 	public void print() {

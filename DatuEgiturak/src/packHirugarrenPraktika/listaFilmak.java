@@ -26,8 +26,8 @@ public class listaFilmak {
 	public void pelikulaGehitu(Pelikula pPelikula) {
 		//Aurre:
 		//Post: Pelikula ez badago zerrendan gehitzen du
-		if(!this.lista.contains(pPelikula)) {
-			lista.add(pPelikula);
+		if(!this.badago(pPelikula)) {
+			this.lista.add(pPelikula);
 		}
 	}
 	

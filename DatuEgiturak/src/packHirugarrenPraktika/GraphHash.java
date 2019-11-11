@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Queue;
 
-public class GraphHash<T> {
+public class GraphHash{
 	
 	private HashMap<String,ArrayList<String>> g;
 	
@@ -16,17 +16,21 @@ public class GraphHash<T> {
 			Aktorea a=lAktoreak.posizioanBueltatu(i);
 			listaFilmak l=a.pelikulenLista();
 			ArrayList<String> listaPe=new ArrayList<String>();
+			
 			for(int j=0;j<l.luzera();j++) { //Pelikulen zerrenda ArrayList<String> bihurtzen dugu
 				Pelikula p=l.posizioanLortu(j);
 				listaPe.add(p.getIzena());
 				listaAktoreak lAkt=lAktoreak.pelikularenAktoreakBueltatu(p);
 				ArrayList<String>listaAkt=new ArrayList<String>();
+				
 				for(int u=0;u<lAkt.luzera();u++) {
 					Aktorea akt=lAkt.posizioanBueltatu(u);
 					listaAkt.add(akt.getIzena());
 				}
+				
 				g.put(p.getIzena(), listaAkt); //Pelikula bakoitzaren erlazioak sortzeko
 			}
+			
 			g.put(a.getIzena(), listaPe);
 		}
 	}
@@ -41,7 +45,7 @@ public class GraphHash<T> {
 			System.out.println();
 		}
 	}
-	
+	/*
 	public boolean konektatuta(String a1, String a2) {
 		//Kodea osatu
 		
@@ -50,8 +54,8 @@ public class GraphHash<T> {
 		
 		ilara.add(a1);
 		while(!ilara.isEmpty()) {
-			ilara.add
+			Wue 
 		}
 		
-	}
+	}*/
 }

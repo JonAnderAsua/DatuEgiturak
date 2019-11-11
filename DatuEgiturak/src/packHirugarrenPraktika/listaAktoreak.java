@@ -138,4 +138,13 @@ public class listaAktoreak {
 		}
 		return a;
 	}
+	
+	public void aktoreakInprimatu() {
+		Aktorea a;
+		Iterator<Aktorea>itr=this.getIteradorea();
+		while(itr.hasNext()) {
+			a=itr.next();
+			System.out.println(a);
+		}
+	}
 }

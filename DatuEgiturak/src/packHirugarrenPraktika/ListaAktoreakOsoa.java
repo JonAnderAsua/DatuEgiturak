@@ -81,7 +81,8 @@ public class ListaAktoreakOsoa {
 		listaAktoreak l=new listaAktoreak();
 		for(int i=0;i<=pArray.size();i++) {
 			String izena=pArray.get(i);
-			l.aktoreaGehitu(izena);
+			Aktorea a=new Aktorea(izena);
+			l.aktoreaGehitu(a);
 		}
 		return l;
 	}
@@ -95,7 +96,7 @@ public class ListaAktoreakOsoa {
 		    Map.Entry e = (Map.Entry)it.next();
 		    Aktorea a= (Aktorea) e.getValue();
 		    if(a.pelikulanParteHartu(pPelikula)){
-		    	lista.aktoreaGehitu(a.getIzena());
+		    	lista.aktoreaGehitu(a);
 		    }
 		}
 		return lista;

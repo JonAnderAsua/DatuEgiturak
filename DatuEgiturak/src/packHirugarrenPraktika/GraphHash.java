@@ -6,7 +6,7 @@ import java.util.Queue;
 
 public class GraphHash{
 	
-	private HashMap<String,ArrayList<String>> g;
+	private HashMap<String,ArrayList<String>> g=new HashMap<String, ArrayList<String>>();
 	
 	public void grafoaSortu(listaAktoreak lAktoreak) {
 		// Post: aktoreen zerrendatik grafoa sortzen du
@@ -30,7 +30,6 @@ public class GraphHash{
 				
 				g.put(p.getIzena(), listaAkt); //Pelikula bakoitzaren erlazioak sortzeko
 			}
-			
 			g.put(a.getIzena(), listaPe);
 		}
 	}
@@ -50,11 +49,16 @@ public class GraphHash{
 		//Kodea osatu
 		
 		Queue<String> ilara=new Queue<String>();
-		ArrayList<String> aztertuak=new ArrayList<String>();
+		HashMap aztertuak=new ArrayList<String>();
+		if(a1.equals(a2){
+			return true;
+		}
+		else{
 		
-		ilara.add(a1);
-		while(!ilara.isEmpty()) {
-			Wue 
+			ilara.add(a1);
+			while(!ilara.isEmpty()) {
+				Wue 
+			}
 		}
 		
 	}*/

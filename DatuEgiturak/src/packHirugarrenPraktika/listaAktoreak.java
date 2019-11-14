@@ -33,12 +33,11 @@ public class listaAktoreak {
 		}
 	}
 	
-	public void aktoreaGehitu(String pIzena){ 
+	public void aktoreaGehitu(Aktorea pA){ 
 		//Aurre:
 		//Post: Aktorea zerrendan ez badago gehitzen du
-		Aktorea a=new Aktorea(pIzena);
-		if(!this.lista.contains(a)) {
-			this.lista.add(a);
+		if(!this.lista.contains(pA)) {
+			this.lista.add(pA);
 		}
 	}
 	
@@ -88,7 +87,7 @@ public class listaAktoreak {
 		while(itr.hasNext()){
 			a=itr.next();
 			if(a.pelikulanParteHartu(pPelikula)){
-				l.aktoreaGehitu(a.getIzena());
+				l.aktoreaGehitu(a);
 			}
 		}
 		return l;

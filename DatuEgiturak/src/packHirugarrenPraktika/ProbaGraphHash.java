@@ -14,10 +14,10 @@ public class ProbaGraphHash {
 		Pelikula p3=new Pelikula("p3");
 		Pelikula p4=new Pelikula("p4");
 		Pelikula p5=new Pelikula("p5");
-		listaAk.aktoreaGehitu(a1.getIzena());
-		listaAk.aktoreaGehitu(a2.getIzena());
-		listaAk.aktoreaGehitu(a3.getIzena());
-		listaAk.aktoreaGehitu(a4.getIzena());
+		listaAk.aktoreaGehitu(a1);
+		listaAk.aktoreaGehitu(a2);
+		listaAk.aktoreaGehitu(a3);
+		listaAk.aktoreaGehitu(a4);
 		a1.gehituPelikula(p1);
 		a1.gehituPelikula(p2);
 		a2.gehituPelikula(p2);
@@ -31,6 +31,19 @@ public class ProbaGraphHash {
 		a2.gehituPelikula(p3);
 		a1.gehituPelikula(p4);
 		
+	/*	listaFilmak filmak=new listaFilmak();
+		filmak.pelikulaGehitu(p1);
+		filmak.pelikulaGehitu(p2);
+
+		filmak.pelikulaGehitu(p3);
+
+		filmak.pelikulaGehitu(p4);
+
+		filmak.pelikulaGehitu(p5);
+		
+		System.out.println(filmak.luzera());
+
+		*/
 		
 		GraphHash g=new GraphHash();
 		g.grafoaSortu(listaAk);

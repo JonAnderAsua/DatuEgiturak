@@ -32,14 +32,14 @@ public class listaFilmak {
 	}
 	
 	public int luzera() {
-		Pelikula p;
 		Iterator<Pelikula>itr=this.getIteradorea();
 		int emaitza=0;
 		if(itr.hasNext()) {
-			p=itr.next();
+			Pelikula p=itr.next();
+			emaitza++;
 			while(itr.hasNext()) {
-				emaitza++;
 				p=itr.next();
+				emaitza++;
 			}
 		}
 		return emaitza;

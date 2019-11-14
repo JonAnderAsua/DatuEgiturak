@@ -44,22 +44,22 @@ public class GraphHash{
 			System.out.println();
 		}
 	}
-	/*
+	
 	public boolean konektatuta(String a1, String a2) {
 		//Kodea osatu
-		
-		Queue<String> ilara=new Queue<String>();
-		HashMap aztertuak=new ArrayList<String>();
-		if(a1.equals(a2){
+		//Hay que hacer un backpointer
+		Queue<String> ilara;
+		HashMap aztertuak=new HashMap<String, ArrayList<String>>();
+		if(a1.equals(a2)){
 			return true;
 		}
 		else{
 		
 			ilara.add(a1);
 			while(!ilara.isEmpty()) {
-				Wue 
+				
 			}
 		}
 		
-	}*/
+	}
 }

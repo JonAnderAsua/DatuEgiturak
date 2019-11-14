@@ -31,20 +31,6 @@ public class ProbaGraphHash {
 		a2.gehituPelikula(p3);
 		a1.gehituPelikula(p4);
 		
-	/*	listaFilmak filmak=new listaFilmak();
-		filmak.pelikulaGehitu(p1);
-		filmak.pelikulaGehitu(p2);
-
-		filmak.pelikulaGehitu(p3);
-
-		filmak.pelikulaGehitu(p4);
-
-		filmak.pelikulaGehitu(p5);
-		
-		System.out.println(filmak.luzera());
-
-		*/
-		
 		GraphHash g=new GraphHash();
 		g.grafoaSortu(listaAk);
 		g.print();

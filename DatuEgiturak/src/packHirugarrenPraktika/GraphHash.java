@@ -2,6 +2,7 @@ package packHirugarrenPraktika;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.Queue;
 
 public class GraphHash{
@@ -48,18 +49,26 @@ public class GraphHash{
 	public boolean konektatuta(String a1, String a2) {
 		//Kodea osatu
 		//Hay que hacer un backpointer
-		Queue<String> ilara;
-		HashMap aztertuak=new HashMap<String, ArrayList<String>>();
-		if(a1.equals(a2)){
-			return true;
-		}
-		else{
-		
-			ilara.add(a1);
-			while(!ilara.isEmpty()) {
-				
+		Queue<String> aztertuGabe=new LinkedList<String>();
+		ArrayList<String> aztertuak=new ArrayList<String>();
+		aztertuGabe.add(a1);
+		String lag=a1;
+		while(!lag.equals(a2) && aztertuGabe.isEmpty()) {
+			lag=aztertuGabe.remove();
+			ArrayList<String> lista=g.get(lag);
+			for(int i=0;i<lista.size();i++) {
+				String sartzeko=lista.get(i);
+				if(!aztertuGabe.contains(sartzeko) && !aztertuak.contains(sartzeko)) {
+					aztertuGabe.add(sartzeko);
+					aztertuak.add(sartzeko);
+				}
 			}
 		}
-		
+		if(lag.contentEquals(a2)) {
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
 }

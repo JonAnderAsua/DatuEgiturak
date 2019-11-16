@@ -58,9 +58,13 @@ public class GraphHash{
 			ArrayList<String> lista=g.get(lag);
 			for(int i=0;i<lista.size();i++) {
 				String sartzeko=lista.get(i);
-				if(!aztertuGabe.contains(sartzeko) && !aztertuak.contains(sartzeko)) {
-					aztertuGabe.add(sartzeko);
-					aztertuak.add(sartzeko);
+				if(!aztertuak.contains(sartzeko)) {
+					if(!aztertuGabe.contains(sartzeko)) {
+						aztertuGabe.add(sartzeko);
+					}
+				}
+				if(!aztertuak.contains(lag)) {
+					aztertuak.add(lag);
 				}
 			}
 		}

@@ -34,6 +34,8 @@ public class ProbaGraphHash {
 		GraphHash g=new GraphHash();
 		g.grafoaSortu(listaAk);
 		g.print();
+		
+		System.out.println(g.konektatuta(a1.getIzena(), a2.getIzena()));
 
 	}
 

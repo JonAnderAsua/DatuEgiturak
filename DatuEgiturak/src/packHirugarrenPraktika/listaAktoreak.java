@@ -130,7 +130,7 @@ public class listaAktoreak {
 		Aktorea a=null;
 		Iterator<Aktorea>itr=this.getIteradorea();
 		int emaitza=pPosizioa;
-		if(itr.hasNext()&&pPosizioa<this.luzera()) {
+		if(itr.hasNext()&&pPosizioa<=this.luzera()) {
 			a=itr.next();
 			while(emaitza>0) {
 				a=itr.next();

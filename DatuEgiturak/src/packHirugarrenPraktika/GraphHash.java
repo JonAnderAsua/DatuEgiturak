@@ -14,18 +14,18 @@ public class GraphHash{
 		// Adabegiak aktoreen izenak eta pelikulen izenburuak dira
 		// KODEA OSATU
 		
-		for(int i=0;i<lAktoreak.luzera();i++) {
+		for(int i=0;i<=lAktoreak.luzera();i++) {
 			Aktorea a=lAktoreak.posizioanBueltatu(i);
 			listaFilmak l=a.pelikulenLista();
 			ArrayList<String> listaPe=new ArrayList<String>();
 			
-			for(int j=0;j<l.luzera();j++) { //Pelikulen zerrenda ArrayList<String> bihurtzen dugu
+			for(int j=0;j<=l.luzera();j++) { //Pelikulen zerrenda ArrayList<String> bihurtzen dugu
 				Pelikula p=l.posizioanLortu(j);
 				listaPe.add(p.getIzena());
 				listaAktoreak lAkt=lAktoreak.pelikularenAktoreakBueltatu(p);
 				ArrayList<String>listaAkt=new ArrayList<String>();
 				
-				for(int u=0;u<lAkt.luzera();u++) { //Pelikula bakoitzaren aktoreen zerrenda ArrayList<String> bihurtzen du
+				for(int u=0;u<=lAkt.luzera();u++) { //Pelikula bakoitzaren aktoreen zerrenda ArrayList<String> bihurtzen du
 					Aktorea akt=lAkt.posizioanBueltatu(u);
 					listaAkt.add(akt.getIzena());
 				}

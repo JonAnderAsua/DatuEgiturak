@@ -13,6 +13,7 @@ public class GraphHash{
 		// Post: aktoreen zerrendatik grafoa sortzen du
 		// Adabegiak aktoreen izenak eta pelikulen izenburuak dira
 		// KODEA OSATU
+		
 		for(int i=0;i<lAktoreak.luzera();i++) {
 			Aktorea a=lAktoreak.posizioanBueltatu(i);
 			listaFilmak l=a.pelikulenLista();
@@ -24,7 +25,7 @@ public class GraphHash{
 				listaAktoreak lAkt=lAktoreak.pelikularenAktoreakBueltatu(p);
 				ArrayList<String>listaAkt=new ArrayList<String>();
 				
-				for(int u=0;u<lAkt.luzera();u++) {
+				for(int u=0;u<lAkt.luzera();u++) { //Pelikula bakoitzaren aktoreen zerrenda ArrayList<String> bihurtzen du
 					Aktorea akt=lAkt.posizioanBueltatu(u);
 					listaAkt.add(akt.getIzena());
 				}
@@ -53,7 +54,7 @@ public class GraphHash{
 		ArrayList<String> aztertuak=new ArrayList<String>();
 		aztertuGabe.add(a1);
 		String lag=a1;
-		while(!lag.equals(a2) && aztertuGabe.isEmpty()) {
+		while(!lag.equals(a2) && !aztertuGabe.isEmpty()) {
 			lag=aztertuGabe.remove();
 			ArrayList<String> lista=g.get(lag);
 			for(int i=0;i<lista.size();i++) {

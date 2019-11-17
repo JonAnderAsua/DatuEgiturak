@@ -14,9 +14,11 @@ import java.io.IOException;
 
 public class listaAktoreak {
 	private ArrayList<Aktorea> lista;
+	private int kont;
 	
 	public listaAktoreak(){
 		this.lista= new ArrayList<Aktorea>();
+		this.kont=this.lista.size();
 	}
 	
 	private Iterator<Aktorea> getIteradorea(){
@@ -128,7 +130,7 @@ public class listaAktoreak {
 		Aktorea a=null;
 		Iterator<Aktorea>itr=this.getIteradorea();
 		int emaitza=pPosizioa;
-		if(itr.hasNext()&&pPosizioa<=this.luzera()) {
+		if(itr.hasNext()&&pPosizioa<this.luzera()) {
 			a=itr.next();
 			while(emaitza>0) {
 				a=itr.next();

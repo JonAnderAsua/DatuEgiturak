@@ -39,7 +39,7 @@ public class GraphHash{
 	public void print() {
 		int i=1;
 		for(String s: g.keySet()) {
-			System.out.println("Element: " + i++ + "" + s + "-->");
+			System.out.println("Element: " + i++ + "-" + s + "-->");
 			for(String k: g.get(s)) {
 				System.out.println(k + "###");
 			}

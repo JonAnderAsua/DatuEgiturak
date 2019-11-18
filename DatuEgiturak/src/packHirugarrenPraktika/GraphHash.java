@@ -19,7 +19,7 @@ public class GraphHash{
 			listaFilmak l=a.pelikulenLista();
 			ArrayList<String> listaPe=new ArrayList<String>();
 			
-			for(int j=0;j<=l.luzera();j++) { //Pelikulen zerrenda ArrayList<String> bihurtzen dugu
+			for(int j=0;j<l.luzera();j++) { //Pelikulen zerrenda ArrayList<String> bihurtzen dugu
 				Pelikula p=l.posizioanLortu(j);
 				listaPe.add(p.getIzena());
 				listaAktoreak lAkt=lAktoreak.pelikularenAktoreakBueltatu(p);

@@ -48,8 +48,15 @@ public class ProbaGraphHash {
 		g.print();
 		
 		
+		/* Lehenengo lau aktoreak grafo bat sortzen dute
+		 * eta beste biak (a5 eta a6) beste grafo ezberdin bat egiten dute 
+		 */
+		
 		System.out.println("Elementu berdinak direnez true eman beharko luke, eta " + g.konektatuta(a1.getIzena(), a1.getIzena()) + " ematen du");
 		System.out.println("Hurrengoa true eman beharko luke eta " + g.konektatuta(a1.getIzena(), a2.getIzena()) + " ematen du" );
+		System.out.println("Hurrengoa true eman beharko luke eta " + g.konektatuta(a1.getIzena(), a3.getIzena()) + " ematen du" );
+		System.out.println("Hurrengoa true eman beharko luke eta " + g.konektatuta(a1.getIzena(), a4.getIzena()) + " ematen du" );
+		System.out.println("Hurrengoa false eman beharko luke eta " + g.konektatuta(a4.getIzena(), a5.getIzena()) + " ematen du" );
 		System.out.println("Hurrengoa false eman beharko luke eta " + g.konektatuta(a1.getIzena(), a5.getIzena()) + " ematen du" );
 		System.out.println("Hurrengoa true eman beharko luke eta " + g.konektatuta(a5.getIzena(), a6.getIzena()) + " ematen du" );
 

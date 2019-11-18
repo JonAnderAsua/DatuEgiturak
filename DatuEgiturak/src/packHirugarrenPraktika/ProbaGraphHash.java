@@ -37,7 +37,6 @@ public class ProbaGraphHash {
 		a4.gehituPelikula(p5);
 		a3.gehituPelikula(p5);
 		a4.gehituPelikula(p1);
-		a2.gehituPelikula(p3);
 		a1.gehituPelikula(p4);
 		a5.gehituPelikula(p6);
 		a6.gehituPelikula(p6);
@@ -53,6 +52,7 @@ public class ProbaGraphHash {
 		 */
 		
 		System.out.println("Elementu berdinak direnez true eman beharko luke, eta " + g.konektatuta(a1.getIzena(), a1.getIzena()) + " ematen du");
+		System.out.println("Elementu berdinak direnez true eman beharko luke, eta " + g.konektatuta(a5.getIzena(), a5.getIzena()) + " ematen du");
 		System.out.println("Hurrengoa true eman beharko luke eta " + g.konektatuta(a1.getIzena(), a2.getIzena()) + " ematen du" );
 		System.out.println("Hurrengoa true eman beharko luke eta " + g.konektatuta(a1.getIzena(), a3.getIzena()) + " ematen du" );
 		System.out.println("Hurrengoa true eman beharko luke eta " + g.konektatuta(a1.getIzena(), a4.getIzena()) + " ematen du" );

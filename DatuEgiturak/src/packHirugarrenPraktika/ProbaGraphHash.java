@@ -12,6 +12,7 @@ public class ProbaGraphHash {
 		Aktorea a4=new Aktorea("a4");
 		Aktorea a5=new Aktorea("a5");
 		Aktorea a6=new Aktorea("a6");
+		Aktorea a7=new Aktorea("a7");
 		
 		Pelikula p1=new Pelikula("p1");
 		Pelikula p2=new Pelikula("p2");
@@ -51,14 +52,15 @@ public class ProbaGraphHash {
 		 * eta beste biak (a5 eta a6) beste grafo ezberdin bat egiten dute 
 		 */
 		
-		System.out.println("Elementu berdinak direnez true eman beharko luke, eta " + g.konektatuta(a1.getIzena(), a1.getIzena()) + " ematen du");
-		System.out.println("Elementu berdinak direnez true eman beharko luke, eta " + g.konektatuta(a5.getIzena(), a5.getIzena()) + " ematen du");
-		System.out.println("Hurrengoa true eman beharko luke eta " + g.konektatuta(a1.getIzena(), a2.getIzena()) + " ematen du" );
-		System.out.println("Hurrengoa true eman beharko luke eta " + g.konektatuta(a1.getIzena(), a3.getIzena()) + " ematen du" );
-		System.out.println("Hurrengoa true eman beharko luke eta " + g.konektatuta(a1.getIzena(), a4.getIzena()) + " ematen du" );
-		System.out.println("Hurrengoa false eman beharko luke eta " + g.konektatuta(a4.getIzena(), a5.getIzena()) + " ematen du" );
-		System.out.println("Hurrengoa false eman beharko luke eta " + g.konektatuta(a1.getIzena(), a5.getIzena()) + " ematen du" );
-		System.out.println("Hurrengoa true eman beharko luke eta " + g.konektatuta(a5.getIzena(), a6.getIzena()) + " ematen du" );
+		System.out.println("Elementu berdinak direnez true eman beharko luke, eta g.konektatuta(a1.getIzena(), a1.getIzena()) " + g.konektatuta(a1.getIzena(), a1.getIzena()) + " ematen du");
+		System.out.println("Elementu berdinak direnez true eman beharko luke, eta g.konektatuta(a5.getIzena(), a5.getIzena()) " + g.konektatuta(a5.getIzena(), a5.getIzena()) + " ematen du");
+		System.out.println("Hurrengoa true eman beharko luke eta g.konektatuta(a1.getIzena(), a2.getIzena()) " + g.konektatuta(a1.getIzena(), a2.getIzena()) + " ematen du" );
+		System.out.println("Hurrengoa true eman beharko luke eta g.konektatuta(a1.getIzena(), a3.getIzena()) " + g.konektatuta(a1.getIzena(), a3.getIzena()) + " ematen du" );
+		System.out.println("Hurrengoa true eman beharko luke eta g.konektatuta(a1.getIzena(), a4.getIzena()) " + g.konektatuta(a1.getIzena(), a4.getIzena()) + " ematen du" );
+		System.out.println("Hurrengoa false eman beharko luke eta g.konektatuta(a4.getIzena(), a5.getIzena()) " + g.konektatuta(a4.getIzena(), a5.getIzena()) + " ematen du" );
+		System.out.println("Hurrengoa false eman beharko luke eta g.konektatuta(a1.getIzena(), a5.getIzena()) " + g.konektatuta(a1.getIzena(), a5.getIzena()) + " ematen du" );
+		System.out.println("Hurrengoa true eman beharko luke eta g.konektatuta(a5.getIzena(), a6.getIzena()) " + g.konektatuta(a5.getIzena(), a6.getIzena()) + " ematen du" );
+		System.out.println("Hurrengoa false eman beharko luke a7 ez dagoelako Hashean eta g.konektatuta(a7.getIzena(), a6.getIzena()) " + g.konektatuta(a7.getIzena(), a6.getIzena()) + " ematen du" );
 
 	}
 

@@ -54,23 +54,28 @@ public class GraphHash{
 		ArrayList<String> aztertuak=new ArrayList<String>();
 		aztertuGabe.add(a1);
 		String lag=a1;
-		while(!lag.equals(a2) && !aztertuGabe.isEmpty()) {
-			lag=aztertuGabe.remove();
-			ArrayList<String> lista=g.get(lag);
-			for(int i=0;i<lista.size();i++) {
-				String sartzeko=lista.get(i);
-				if(!aztertuak.contains(sartzeko)) {
-					if(!aztertuGabe.contains(sartzeko)) {
-						aztertuGabe.add(sartzeko);
+		if(g.containsKey(a1)&&g.containsKey(a2)) {
+			while(!lag.equals(a2) && !aztertuGabe.isEmpty()) {
+				lag=aztertuGabe.remove();
+				ArrayList<String> lista=g.get(lag);
+				for(int i=0;i<lista.size();i++) {
+					String sartzeko=lista.get(i);
+					if(!aztertuak.contains(sartzeko)) {
+						if(!aztertuGabe.contains(sartzeko)) {
+							aztertuGabe.add(sartzeko);
+						}
+					}
+					if(!aztertuak.contains(lag)) {
+						aztertuak.add(lag);
 					}
 				}
-				if(!aztertuak.contains(lag)) {
-					aztertuak.add(lag);
-				}
 			}
-		}
-		if(lag.contentEquals(a2)) {
-			return true;
+			if(lag.contentEquals(a2)) {
+				return true;
+			}
+			else {
+				return false;
+			}
 		}
 		else {
 			return false;

@@ -12,7 +12,6 @@ public class GraphHash{
 	public void grafoaSortu(listaAktoreak lAktoreak) {
 		// Post: aktoreen zerrendatik grafoa sortzen du
 		// Adabegiak aktoreen izenak eta pelikulen izenburuak dira
-		// KODEA OSATU
 		
 		for(int i=0;i<=lAktoreak.luzera();i++) {
 			Aktorea a=lAktoreak.posizioanBueltatu(i);
@@ -48,8 +47,9 @@ public class GraphHash{
 	}
 	
 	public boolean konektatuta(String a1, String a2) {
-		//Kodea osatu
-		//Hay que hacer un backpointer
+		//Aurre:
+		//Post: Bi String emanda grafoaren bitartez konektatuta dauden ala ez adierazten du, 
+		//konektatuta badaude true bueltatuko du, bestela false
 		Queue<String> aztertuGabe=new LinkedList<String>();
 		ArrayList<String> aztertuak=new ArrayList<String>();
 		aztertuGabe.add(a1);

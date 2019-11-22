@@ -2,6 +2,10 @@ package packHirugarrenPraktika;
 import java.util.Scanner;
 import java.util.SortedSet;
 import java.util.TreeSet;
+import java.util.concurrent.TimeUnit;
+
+import com.sun.java.util.jar.pack.Package.File;
+
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -30,6 +34,38 @@ public class ListaAktoreakOsoa {
 	public void cargarLista(String nomF){  
 		//Aurre:
 		//Post: Fitxategia existitzen bada bi HashMap sortzen ditu, bat pelikula guztiekin eta beste bat aktore guztiekin
+		
+		long startTime = System.nanoTime();
+		String unekoAktore=null;
+		String[] linea = null;
+	    File file = new File("/home/jonander/FilmsActors20162017.txt"); 
+	    Scanner sc = new Scanner(file); 
+	    TimeUnit.SECONDS.sleep(1);
+	    while (sc.hasNextLine()) {
+		    linea = sc.nextLine().replace(" &&& ", "<").replace("> ", ">").split("[<>]+"); //la primera linea
+		    String pelikulaIzena=linea[0].replace("-","");
+		    Pelikula Pelikula1 =new Pelikula(pelikulaIzena);
+	    	for(int i=1;i<linea.length;i++) { //pongo i=1 porque el primer dato del array es el nombre de la peli y no un actor
+	    			unekoAktore=linea[i].replace(", ", " ");
+	    			String izena = unekoAktore;
+	    			Aktorea Aktore1 = new Aktorea(izena);//eeeeeeeeeee
+	    			if(ListaAktoreakOsoa.nireListaAktoreakOsoa.badago(Aktore1)){
+	    				ListaAktoreakOsoa.nireListaAktoreakOsoa.aktoreaBilatu(Aktore1).gehituPelikula(Pelikula1);
+	    			}else {
+		    			Aktore1.gehituPelikula(Pelikula1);
+		    			ListaAktoreakOsoa.nireListaAktoreakOsoa.aktoreaGehitu(Aktore1);	    
+	    			}			
+	    		}
+	    	ListaPelikulakOsoa.getNireListaPelikulakOsoa().gehituPelikula(Pelikula1);
+	    }
+	    long endTime = System.nanoTime();
+
+		long timeElapsed = endTime - startTime;
+
+		System.out.println(timeElapsed / 1000000000 + " segundu behar izan dira. " );
+		sc.close();
+		
+		/*
 		try {
 			Scanner entrada = new Scanner(new FileReader(nomF));      
 			String linea;     
@@ -47,14 +83,14 @@ public class ListaAktoreakOsoa {
 		entrada.close(); 
 		}
 		catch(IOException e) {e.printStackTrace();}
+		*/
 	}
 	
-	public void aktoreaGehitu(String pAktorea){
+	public void aktoreaGehitu(Aktorea pAktorea){
 		//Aurre:
 		//Post: Aktorea ez badago HashMapean txertatzen du
-		Aktorea a=new Aktorea(pAktorea);
-		if (!this.map.containsKey(a)){ 
-			this.map.put(pAktorea,a);
+		if (!this.map.containsKey(pAktorea)){ 
+			this.map.put(pAktorea.getIzena(),pAktorea);
 		}
 	}
 	
@@ -118,5 +154,9 @@ public class ListaAktoreakOsoa {
 	public Object[] keySet() {
 		// TODO Auto-generated method stub
 		return this.map.keySet().toArray();
+	}
+	
+	public boolean badago(Aktorea a) {
+		return this.map.containsKey(a);
 	}
 }

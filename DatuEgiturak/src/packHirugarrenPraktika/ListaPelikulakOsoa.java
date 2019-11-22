@@ -16,12 +16,11 @@ public class ListaPelikulakOsoa {
 		
 		return nireListaPelikulakOsoa;
 	}
-	public Pelikula gehituPelikula(String pString) {
+	public Pelikula gehituPelikula(Pelikula p) {
 		//Aurre:
 		//Post: Pelikula ez badago HashMapean txertatzen du
-		Pelikula p=new Pelikula(pString);
 		if (!this.map.containsKey(p)){ //galdetu
-			this.map.put(pString,p);
+			this.map.put(p.getIzena(),p);
 		}
 		return p;
 	}

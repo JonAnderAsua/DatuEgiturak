@@ -69,12 +69,6 @@ public class ProbaGraphHash {
 		GraphHash g = new GraphHash();
 		g.grafoaSortuHashetik();
 		g.print();
-	//	g.denboraNeurtu(100);
+		g.denboraNeurtu(100);
 	}
-	
-	/*
-	public static void main(String[] args) {
-		main2();
-	}
-	*/
 }

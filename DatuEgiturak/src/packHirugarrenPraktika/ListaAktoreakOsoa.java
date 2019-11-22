@@ -3,9 +3,7 @@ import java.util.Scanner;
 import java.util.SortedSet;
 import java.util.TreeSet;
 import java.util.concurrent.TimeUnit;
-
-import com.sun.java.util.jar.pack.Package.File;
-
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -38,9 +36,8 @@ public class ListaAktoreakOsoa {
 		long startTime = System.nanoTime();
 		String unekoAktore=null;
 		String[] linea = null;
-	    File file = new File("/home/jonander/FilmsActors20162017.txt"); 
+	    File file = new File("/home/jonander/FilmsActors20162017.txt"); //Errorea ematen du eta ez dakit zergatik 
 	    Scanner sc = new Scanner(file); 
-	    TimeUnit.SECONDS.sleep(1);
 	    while (sc.hasNextLine()) {
 		    linea = sc.nextLine().replace(" &&& ", "<").replace("> ", ">").split("[<>]+"); 
 		    String pelikulaIzena=linea[0].replace("-","");
@@ -58,9 +55,6 @@ public class ListaAktoreakOsoa {
 	    		}
 	    	ListaPelikulakOsoa.getNireListaPelikulakOsoa().gehituPelikula(Pelikula1);
 	    }
-	    long endTime = System.nanoTime();
-
-		long timeElapsed = endTime - startTime;
 
 		System.out.println(timeElapsed / 1000000000 + " segundu behar ditu" );
 		sc.close();

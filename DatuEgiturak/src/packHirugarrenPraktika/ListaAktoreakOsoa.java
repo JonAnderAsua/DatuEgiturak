@@ -42,10 +42,10 @@ public class ListaAktoreakOsoa {
 	    Scanner sc = new Scanner(file); 
 	    TimeUnit.SECONDS.sleep(1);
 	    while (sc.hasNextLine()) {
-		    linea = sc.nextLine().replace(" &&& ", "<").replace("> ", ">").split("[<>]+"); //la primera linea
+		    linea = sc.nextLine().replace(" &&& ", "<").replace("> ", ">").split("[<>]+"); 
 		    String pelikulaIzena=linea[0].replace("-","");
 		    Pelikula Pelikula1 =new Pelikula(pelikulaIzena);
-	    	for(int i=1;i<linea.length;i++) { //pongo i=1 porque el primer dato del array es el nombre de la peli y no un actor
+	    	for(int i=1;i<linea.length;i++) { 
 	    			unekoAktore=linea[i].replace(", ", " ");
 	    			String izena = unekoAktore;
 	    			Aktorea Aktore1 = new Aktorea(izena);//eeeeeeeeeee
@@ -62,7 +62,7 @@ public class ListaAktoreakOsoa {
 
 		long timeElapsed = endTime - startTime;
 
-		System.out.println(timeElapsed / 1000000000 + " segundu behar izan dira. " );
+		System.out.println(timeElapsed / 1000000000 + " segundu behar ditu" );
 		sc.close();
 		
 		/*

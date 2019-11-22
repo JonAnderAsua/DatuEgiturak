@@ -5,7 +5,6 @@ public class ProbaGraphHash {
 
 	public static void main(String[] args) {
 		listaAktoreak listaAk=new listaAktoreak();
-		
 		Aktorea a1=new Aktorea("a1");
 		Aktorea a2=new Aktorea("a2");
 		Aktorea a3=new Aktorea("a3");
@@ -57,11 +56,25 @@ public class ProbaGraphHash {
 		System.out.println("Hurrengoa true eman beharko luke eta g.konektatuta(a1.getIzena(), a2.getIzena()) " + g.konektatuta(a1.getIzena(), a2.getIzena()) + " ematen du" );
 		System.out.println("Hurrengoa true eman beharko luke eta g.konektatuta(a1.getIzena(), a3.getIzena()) " + g.konektatuta(a1.getIzena(), a3.getIzena()) + " ematen du" );
 		System.out.println("Hurrengoa true eman beharko luke eta g.konektatuta(a1.getIzena(), a4.getIzena()) " + g.konektatuta(a1.getIzena(), a4.getIzena()) + " ematen du" );
+		System.out.println("Hurrengoa true eman beharko luke eta g.konektatuta(a1.getIzena(), p1.getIzena()) " + g.konektatuta(a1.getIzena(), p1.getIzena()) + " ematen du" );
+
 		System.out.println("Hurrengoa false eman beharko luke eta g.konektatuta(a4.getIzena(), a5.getIzena()) " + g.konektatuta(a4.getIzena(), a5.getIzena()) + " ematen du" );
 		System.out.println("Hurrengoa false eman beharko luke eta g.konektatuta(a1.getIzena(), a5.getIzena()) " + g.konektatuta(a1.getIzena(), a5.getIzena()) + " ematen du" );
 		System.out.println("Hurrengoa true eman beharko luke eta g.konektatuta(a5.getIzena(), a6.getIzena()) " + g.konektatuta(a5.getIzena(), a6.getIzena()) + " ematen du" );
 		System.out.println("Hurrengoa false eman beharko luke a7 ez dagoelako Hashean eta g.konektatuta(a7.getIzena(), a6.getIzena()) " + g.konektatuta(a7.getIzena(), a6.getIzena()) + " ematen du" );
-
+		
 	}
 
+	public static void main2(String[] args) {
+		GraphHash g = new GraphHash();
+		g.grafoaSortuHashetik();
+		g.print();
+	//	g.denboraNeurtu(100);
+	}
+	
+	/*
+	public static void main(String[] args) {
+		main2();
+	}
+	*/
 }

@@ -68,6 +68,11 @@ public class ListaAktoreakOsoa {
 		return emaitza;
 	}
 	
+	
+	public Aktorea aktoreaBilatuIzenez(String pIzena) {
+		Aktorea emaitza=null;
+		return this.map.get(pIzena);
+	}
 	public listaAktoreak ordenatu() {
 		//Aurre
 		//Post: Mergesort teknika erabiliz HashMapa lista bat bihurtzen du eta ordenatzen du
@@ -104,5 +109,14 @@ public class ListaAktoreakOsoa {
 	
 	public int luzera() {
 		return this.map.size();
+	}
+
+	public int size() {
+		return this.map.size();
+	}
+
+	public Object[] keySet() {
+		// TODO Auto-generated method stub
+		return this.map.keySet().toArray();
 	}
 }

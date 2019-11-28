@@ -127,4 +127,8 @@ public class GraphHash{
 		System.out.println(denbora/100);
 	}
 	
+	public HashMap<String,Double> pageRank(){
+		
+	}
+	
 }

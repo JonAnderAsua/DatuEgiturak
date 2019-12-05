@@ -2,6 +2,7 @@ package packHirugarrenPraktika;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Random;
@@ -128,7 +129,58 @@ public class GraphHash{
 	}
 	
 	public HashMap<String,Double> pageRank(){
+		HashMap<String,Double> lag = new HashMap<String, Double>();
+		HashMap<String,Double> emaitza = new HashMap<String, Double>();
+		double errorea = 100;
+		double p=0.85;
+		int kopOsoa=this.g.size();
+		double hasierakoBalioa = 1/kopOsoa;
+		Iterator<String> itr = this.g.keySet().iterator(); //hasieraketa egiteko 
+		Iterator<String> itr2 = this.g.keySet().iterator();
 		
+		while(itr.hasNext()) { //lehenengo iterazioa, adabegiak balio bera dute
+			String next = itr.next();
+			lag.put(next,hasierakoBalioa);
+		}
+		
+		while (errorea > 0.0001) { 
+			String unekoa = itr2.next();
+			double puntUnekoa = lag.get(unekoa);
+			ArrayList<String> erlazioak = this.g.get(unekoa); 
+			int listarenLuzera = erlazioak.size();
+			Iterator<String> itrErlazioak = erlazioak.iterator();
+			
+			while (itrErlazioak.hasNext()) { //Puntuazioa banatzeko
+				String erlazioaLag = itrErlazioak.next();
+				if(!emaitza.containsKey(erlazioaLag)) {
+					emaitza.put(erlazioaLag, puntUnekoa/listarenLuzera);
+				}
+				else {
+					double eguneratu = emaitza.get(erlazioaLag) + (puntUnekoa/listarenLuzera) ;
+					emaitza.put(erlazioaLag, eguneratu);
+				}
+			}
+			
+			Iterator<String> itrFor = emaitza.keySet().iterator();
+			
+			while (itrFor.hasNext()) { // balio bakoitzari formula aplikatu
+				String unekoaFor = itrFor.next();
+				double balioa = emaitza.get(unekoaFor);
+				balioa = (balioa * p) + ((1 - p) / kopOsoa);
+				emaitza.put(unekoaFor, balioa);
+			}
+			
+			Iterator<String> itrErrorea = emaitza.keySet().iterator();
+			double unekoa1Balioa = 0;
+			
+			while (itrErrorea.hasNext()) {
+				String unekoa1 = itrErrorea.next();
+				unekoa1Balioa = unekoa1Balioa + Math.abs(emaitza.get(unekoa1) - lag.get(unekoa1));
+			}
+			
+			lag = emaitza;
+			errorea = unekoa1Balioa;
+		}
+		return lag;
 	}
-	
 }

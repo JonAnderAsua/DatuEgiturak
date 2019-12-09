@@ -21,7 +21,7 @@ public class listaAktoreak {
 		this.kont=this.lista.size();
 	}
 	
-	private Iterator<Aktorea> getIteradorea(){
+	public Iterator<Aktorea> getIteradorea(){
 		//Aurre:
 		//Post: Zerrendaren iteradorea bueltatzen du
 		return this.lista.iterator();

@@ -56,34 +56,15 @@ public class ListaAktoreakOsoa {
 	    	ListaPelikulakOsoa.getNireListaPelikulakOsoa().gehituPelikula(Pelikula1);
 	    }
 
-		System.out.println(timeElapsed / 1000000000 + " segundu behar ditu" );
+//		System.out.println(timeElapsed / 1000000000 + " segundu behar ditu" );
 		sc.close();
 		
-		/*
-		try {
-			Scanner entrada = new Scanner(new FileReader(nomF));      
-			String linea;     
-			while (entrada.hasNext()) {         
-				linea = entrada.nextLine();         
-				String[]a=linea.split("\\s--->\\s");
-				String[]aktoreak=a[1].split("\\s&&&\\s");
-				Pelikula peli=ListaPelikulakOsoa.getNireListaPelikulakOsoa().gehituPelikula(a[0]);
-				for(int i=0;i<aktoreak.length;i++){
-					ListaAktoreakOsoa.getNireListaAktoreakOsoa().aktoreaGehitu(aktoreak[i]);
-					Aktorea akt=new Aktorea(aktoreak[i]);
-					akt.gehituPelikula(peli);
-				}
-			}
-		entrada.close(); 
-		}
-		catch(IOException e) {e.printStackTrace();}
-		*/
 	}
 	
 	public void aktoreaGehitu(Aktorea pAktorea){
 		//Aurre:
 		//Post: Aktorea ez badago HashMapean txertatzen du
-		if (!this.map.containsKey(pAktorea)){ 
+		if (!this.map.containsValue(pAktorea)){ 
 			this.map.put(pAktorea.getIzena(),pAktorea);
 		}
 	}
@@ -92,7 +73,7 @@ public class ListaAktoreakOsoa {
 		//Aurre:
 		//Post: Aktorea HashMapean bilatzen du, aurkitzen badu Aktore hori bueltatzen du, bestela null bueltatzen du
 		Aktorea emaitza=null;
-		if(this.map.containsKey(pAktorea)){
+		if(this.map.containsValue(pAktorea)){
 			emaitza=pAktorea;
 		}
 		return emaitza;
@@ -100,7 +81,6 @@ public class ListaAktoreakOsoa {
 	
 	
 	public Aktorea aktoreaBilatuIzenez(String pIzena) {
-		Aktorea emaitza=null;
 		return this.map.get(pIzena);
 	}
 	public listaAktoreak ordenatu() {
@@ -135,8 +115,11 @@ public class ListaAktoreakOsoa {
 		    }
 		}
 		return lista;
+		
 	}
-	
+	public boolean badagoString(String pIzena) {
+		return this.map.containsKey(pIzena);
+	}
 	public int luzera() {
 		return this.map.size();
 	}

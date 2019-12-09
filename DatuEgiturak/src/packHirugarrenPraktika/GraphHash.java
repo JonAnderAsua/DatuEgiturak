@@ -10,6 +10,7 @@ import java.util.Random;
 public class GraphHash{
 	
 	private HashMap<String,ArrayList<String>> g=new HashMap<String, ArrayList<String>>();
+	private HashMap<String, Double> pageRank = this.pageRank();
 	
 	public void grafoaSortu(listaAktoreak lAktoreak) {
 		// Post: aktoreen zerrendatik grafoa sortzen du
@@ -183,4 +184,71 @@ public class GraphHash{
 		}
 		return lag;
 	}
+	
+	public ArrayList<Bikote> bilatzea(String gakoHitz){
+		HashMap<String,Double> lag = new HashMap<String, Double>();
+		Iterator<String> itr = this.pageRank.keySet().iterator();
+		ArrayList<Bikote> emaitza = new ArrayList<Bikote>();
+		while(itr.hasNext()) { 
+			String unekoa = itr.next();
+			if(unekoa.contains(gakoHitz.toLowerCase())){
+				lag.put(unekoa, this.pageRank.get(unekoa));
+			}
+		}
+		
+		lag = sortByValue(lag); //Hasha ordenatzeko
+		
+		Iterator <String> itrOrd = lag.keySet().iterator(); 
+		
+		HashMap<String, Double> hash = new HashMap<String, Double>();
+		
+		if(itr.hasNext()) {
+			String unekoa = itr.next();
+			if(ListaAktoreakOsoa.getNireListaAktoreakOsoa().badagoString(unekoa)) { //Aktore bat bada
+				Iterator<Pelikula> itrP = ListaAktoreakOsoa.getNireListaAktoreakOsoa().aktoreaBilatuIzenez(unekoa).pelikulenLista().getIteradorea();
+				while(itrP.hasNext()) {
+					Pelikula uPelikula = itrP.next();
+					String izena = uPelikula.getIzena();
+					hash.put(izena,pageRank.get(uPelikula));
+				}
+			}
+			else { //Pelikula bat bada
+				Pelikula p = new Pelikula (unekoa);
+				Iterator<Aktorea> itrA= ListaAktoreakOsoa.getNireListaAktoreakOsoa().pelikularenAktoreak(p).getIteradorea();
+				while (itrA.hasNext()) {
+					Aktorea a = itrA.next();
+					String izenaA = a.getIzena();
+					hash.put(izenaA, pageRank.get(izenaA));				
+				}
+			}
+		}
+		
+		hash.sortByValue(hash);
+		
+		Iterator<String> itrEmaitza = hash.keySet().iterator();
+		
+		while(itr.hasNext()) {
+			String unekoBik = itr.next();
+			Bikote sartzeko = new Bikote(unekoBik, pageRank.get(unekoBik));
+			emaitza.add(sartzeko);
+		}
+		
+		return emaitza;
+	}
+	
+	public HashMap<String, Double> sortByValue(HashMap<String, Double> hm)  { 
+        List<Map.Entry<String, Double> > list = new LinkedList<Map.Entry<String, Double> >(hm.entrySet()); 
+        Collections.sort(list, new Comparator<Map.Entry<String, Double> >() { 
+            public int compare(Map.Entry<String, Double> o2,  Map.Entry<String, Double> o1)  { 
+                return (o1.getValue()).compareTo(o2.getValue()); 
+            } 
+        }); 
+          
+        // put data from sorted list to hashmap  
+        HashMap<String, Double> temp = new LinkedHashMap<String, Double>(); 
+        for (Map.Entry<String, Double> aa : list) { 
+            temp.put(aa.getKey(), aa.getValue()); 
+        } 
+        return temp; 
+    }
 }

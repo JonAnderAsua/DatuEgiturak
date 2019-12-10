@@ -1,11 +1,17 @@
 package packHirugarrenPraktika;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.LinkedList;
+import java.util.Map;
 import java.util.Queue;
 import java.util.Random;
+
+import com.sun.tools.javac.util.List;
 
 public class GraphHash{
 	

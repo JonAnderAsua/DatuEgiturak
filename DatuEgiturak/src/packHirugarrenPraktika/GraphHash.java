@@ -11,7 +11,6 @@ import java.util.Map;
 import java.util.Queue;
 import java.util.Random;
 
-import com.sun.tools.javac.util.List;
 
 public class GraphHash{
 	

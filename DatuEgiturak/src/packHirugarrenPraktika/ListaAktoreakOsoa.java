@@ -4,6 +4,7 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 import java.util.concurrent.TimeUnit;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -37,7 +38,34 @@ public class ListaAktoreakOsoa {
 		String unekoAktore=null;
 		String[] linea = null;
 	    File file = new File("/home/jonander/FilmsActors20162017.txt"); //Errorea ematen du eta ez dakit zergatik 
-	    Scanner sc = new Scanner(file); 
+	    Scanner sc;
+		try {
+			sc = new Scanner(file);
+			while (sc.hasNextLine()) {
+			    linea = sc.nextLine().replace(" &&& ", "<").replace("> ", ">").split("[<>]+"); 
+			    String pelikulaIzena=linea[0].replace("-","");
+			    Pelikula Pelikula1 =new Pelikula(pelikulaIzena);
+		    	for(int i=1;i<linea.length;i++) { 
+		    			unekoAktore=linea[i].replace(", ", " ");
+		    			String izena = unekoAktore;
+		    			Aktorea Aktore1 = new Aktorea(izena);//eeeeeeeeeee
+		    			if(ListaAktoreakOsoa.nireListaAktoreakOsoa.badago(Aktore1)){
+		    				ListaAktoreakOsoa.nireListaAktoreakOsoa.aktoreaBilatu(Aktore1).gehituPelikula(Pelikula1);
+		    			}else {
+			    			Aktore1.gehituPelikula(Pelikula1);
+			    			ListaAktoreakOsoa.nireListaAktoreakOsoa.aktoreaGehitu(Aktore1);	    
+		    			}			
+		    		}
+		    	ListaPelikulakOsoa.getNireListaPelikulakOsoa().gehituPelikula(Pelikula1);
+		    }
+
+//			System.out.println(timeElapsed / 1000000000 + " segundu behar ditu" );
+			sc.close();
+			
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
 	    while (sc.hasNextLine()) {
 		    linea = sc.nextLine().replace(" &&& ", "<").replace("> ", ">").split("[<>]+"); 
 		    String pelikulaIzena=linea[0].replace("-","");

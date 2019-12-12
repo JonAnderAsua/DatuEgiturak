@@ -58,7 +58,6 @@ public class ListaAktoreakOsoa {
 		    		}
 		    	ListaPelikulakOsoa.getNireListaPelikulakOsoa().gehituPelikula(Pelikula1);
 		    }
-
 //			System.out.println(timeElapsed / 1000000000 + " segundu behar ditu" );
 			sc.close();
 			

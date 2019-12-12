@@ -140,7 +140,8 @@ public class GraphHash{
 		HashMap<String,Double> emaitza = new HashMap<String, Double>();
 		double errorea = 100;
 		double p=0.85;
-		int kopOsoa=this.g.size();
+		int kopOsoa = g.size();
+		System.out.println(g.size());
 		double hasierakoBalioa = 1/kopOsoa;
 		Iterator<String> itr = this.g.keySet().iterator(); //hasieraketa egiteko 
 		Iterator<String> itr2 = this.g.keySet().iterator();
@@ -229,12 +230,12 @@ public class GraphHash{
 			}
 		}
 		
-		hash.sortByValue(hash);
+		hash = this.sortByValue(hash);
 		
 		Iterator<String> itrEmaitza = hash.keySet().iterator();
 		
-		while(itr.hasNext()) {
-			String unekoBik = itr.next();
+		while(itrEmaitza.hasNext()) {
+			String unekoBik = itrEmaitza.next();
 			Bikote sartzeko = new Bikote(unekoBik, pageRank.get(unekoBik));
 			emaitza.add(sartzeko);
 		}
@@ -257,4 +258,8 @@ public class GraphHash{
         } 
         return temp; 
     }
+	
+	public int size() {
+		return g.size();
+	}
 }

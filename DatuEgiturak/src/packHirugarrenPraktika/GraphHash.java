@@ -141,7 +141,6 @@ public class GraphHash{
 		double errorea = 100;
 		double p=0.85;
 		int kopOsoa = g.size();
-		System.out.println(g.size());
 		double hasierakoBalioa = 1/kopOsoa;
 		Iterator<String> itr = this.g.keySet().iterator(); //hasieraketa egiteko 
 		Iterator<String> itr2 = this.g.keySet().iterator();
@@ -198,19 +197,19 @@ public class GraphHash{
 		ArrayList<Bikote> emaitza = new ArrayList<Bikote>();
 		while(itr.hasNext()) { 
 			String unekoa = itr.next();
-			if(unekoa.contains(gakoHitz.toLowerCase())){
+			if(unekoa.contains(gakoHitz)){
 				lag.put(unekoa, this.pageRank.get(unekoa));
 			}
 		}
 		
 		lag = sortByValue(lag); //Hasha ordenatzeko
 		
-		Iterator <String> itrOrd = lag.keySet().iterator(); 
+		Iterator <String> itr2 = lag.keySet().iterator(); 
 		
 		HashMap<String, Double> hash = new HashMap<String, Double>();
 		
-		if(itr.hasNext()) {
-			String unekoa = itr.next();
+		if(itr2.hasNext()) {
+			String unekoa = itr2.next();
 			if(ListaAktoreakOsoa.getNireListaAktoreakOsoa().badagoString(unekoa)) { //Aktore bat bada
 				Iterator<Pelikula> itrP = ListaAktoreakOsoa.getNireListaAktoreakOsoa().aktoreaBilatuIzenez(unekoa).pelikulenLista().getIteradorea();
 				while(itrP.hasNext()) {
